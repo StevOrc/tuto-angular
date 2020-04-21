@@ -23,6 +23,7 @@ export class AppComponent {
     {idCar: 4, couleur: 'bleu', marque: 'Test', model: 'Test', prix: 10000}
   ]
 
+
   dateNow(){
     let now = new Date();
     return now.getDate() +" / "+ now.getMonth() +"/ "+ now.getFullYear();

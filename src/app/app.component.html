@@ -1,8 +1,8 @@
 
 <div class="main">
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Usernam = {{ username }} </li>
-        <li class="list-group-item">Password =  {{ password }} </li>
+        <li class="list-group-item" [style.color]=" isConnected ? 'green' : 'black' ">username = {{ username }} </li>
+        <li class="list-group-item" [class.custom-class]="isConnected">Password =  {{ password }} </li>
         <li class="list-group-item">Date =  {{ dateNow() }} </li>
         <li
             *ngIf="isConnected"
