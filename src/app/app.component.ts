@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tuto';
+  
+  username = 'Steven';
+  password = '123456';
+
+  value = "username"
+
+  dateNow(){
+    let now = new Date();
+
+    return now.getDate() +" / "+ now.getMonth() +"/ "+ now.getFullYear();
+  }
+
+  onClick(){
+    this.username = this.value;
+  }
 }
