@@ -7,14 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  username = 'Steven';
+  username: string = 'Steven';
   password = '123456';
+
+  isConnected: boolean = false; 
+
+
 
   value = "username"
 
   dateNow(){
     let now = new Date();
-
     return now.getDate() +" / "+ now.getMonth() +"/ "+ now.getFullYear();
   }
 
