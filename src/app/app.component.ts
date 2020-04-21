@@ -10,9 +10,7 @@ export class AppComponent {
   username: string = 'Steven';
   password = '123456';
 
-  isConnected: boolean = false; 
-
-
+  isConnected: boolean = false;
 
   value = "username"
 
@@ -23,5 +21,9 @@ export class AppComponent {
 
   onClick(){
     this.username = this.value;
+  }
+
+  onClickConnected(): void {
+    this.isConnected = !this.isConnected;
   }
 }
