@@ -11,6 +11,7 @@ export class AppComponent {
   password = '123456';
 
   isConnected: boolean = false;
+  testNgTemplate: boolean = true;
 
   value = "username"
 

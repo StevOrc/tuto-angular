@@ -11,6 +11,11 @@
             >
             User is connected
         </li>
+
+        <ng-template [ngIf]="testNgTemplate">
+            <li class="list-group-item">test </li>
+        </ng-template>
+
     </ul>
 
     <button class="btn btn-success" (click)="onClickConnected()">Connexion</button>
