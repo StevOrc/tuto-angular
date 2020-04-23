@@ -1,0 +1,61 @@
+
+<div class="main">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" [style.color]=" isConnected ? 'green' : 'black' ">username = {{ username }} </li>
+        <li
+            class="list-group-item"
+            [class.custom-class]="isConnected"
+        >
+            Password =  {{ password }}
+        </li>
+        <li class="list-group-item">Date =  {{ dateNow() }} </li>
+        <li
+            *ngIf="isConnected"
+            class="list-group-item"
+            style="color: red;"
+            >
+            User is connected
+        </li>
+
+    </ul>
+
+    <button class="btn btn-success" (click)="onClickConnected()">Connexion</button>
+
+    <div class="input-group mb-3" style="margin-top: 25px;">
+        <input
+            type="text"
+            class="form-control"
+            [placeholder]="value"
+            [(ngModel)]="value"
+        >
+    </div>
+    <div>
+        <p>Event Binding</p>
+        <button type="button" class="btn btn-primary" (click)="onClick()">Valider</button>
+    </div>
+</div>
+
+<div style="margin-top: 100px;" class="table-cars">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id car</th>
+            <th scope="col">Model</th>
+            <th scope="col">Couleur</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Prix</th>
+            <th scope="col">index</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars; let i = index;">
+            <th scope="row"> {{car.idCar}} </th>
+            <td>{{car.model}}</td>
+            <td>{{car.couleur}}</td>
+            <td>{{car.marque}}</td>
+            <td>{{car.prix}}</td>
+            <td>{{i}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
