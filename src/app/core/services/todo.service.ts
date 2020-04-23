@@ -2,18 +2,21 @@ import { Injectable } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TodoService {
 
+  // Utilisé pour simuler de l'asynchrone car c'est un Observable => on peut y subscribe
   todos: BehaviorSubject<Todo[]> = new BehaviorSubject(null);
 
   constructor() {
     this.initDatas();
   }
 
-  getAllTodos(){
+  getAllTodos(): Observable<Todo[]>{
 
-    return this.todos.value;
+    return this.todos;
   }
 
   getAllTodosAsObservable(): Observable<Todo[]> {
