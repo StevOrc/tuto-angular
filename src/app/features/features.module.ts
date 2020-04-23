@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TutoModule } from './tuto/tuto.module';
 import { SharedModule } from '../shared/shared.module';
-import { CarModule } from './car/car.module';
+import { TodoModule } from './todo/todo.module';
 
 
 
@@ -10,8 +10,11 @@ import { CarModule } from './car/car.module';
   imports: [
     SharedModule,
     TutoModule,
-    CarModule
+    TodoModule
   ],
-  exports: [TutoModule]
+  exports: [
+    TutoModule,
+    TodoModule
+  ]
 })
 export class FeaturesModule { }
