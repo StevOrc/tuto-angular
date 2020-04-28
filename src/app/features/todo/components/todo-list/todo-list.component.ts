@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/models/todo.model';
 import { TodoService } from 'src/app/core/services/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,7 +12,7 @@ export class TodoListComponent implements OnInit {
 
   todos: Todo[];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private router: Router) { }
 
   ngOnInit(): void {
     this.todoService.getAllTodos().subscribe( data =>{
@@ -21,11 +22,20 @@ export class TodoListComponent implements OnInit {
     })
   }
 
+  onClickEdit(idTodo): void{
+    this.router.navigate(['todos', idTodo]);
+  }
+
+  onClickCreate(): void {
+    this.router.navigate(['todos', 'new']);
+  }
+
   dateNow(): string{
     let dateNow = '';
     const now = new Date();
     let day;
     let month;
+
     if(now.getDate() < 10)
       day = '0'+now.getDate();
     else{

@@ -3,7 +3,7 @@
         <div class="container-fluid">
           <div class="d-flex flex-row justify-content-between">
               <h3>Liste de todo du : {{ dateNow() }} </h3>
-              <button class="btn"><i class="material-icons create-todo">control_point</i></button>
+              <button class="btn" (click)="onClickCreate()"><i class="material-icons create-todo">control_point</i></button>
           </div>
           <div *ngFor="let todo of todos; let i = index">
             <li
@@ -11,19 +11,14 @@
             >
             <div class="icon-button">
                 <a class="btn"><i class="material-icons">{{todo.done ?  'check_box' : 'check_box_outline_blank'}}</i></a>
-                <!-- <a class="btn"><i class="material-icons">check_box_outline_blank</i></a> -->
             </div>
               <!-- {{ todo.done ?  'check_box' : 'check_box_outline_blank'}} -->
               <p fxFlex="auto"> <span class="id-todo">{{todo.idTodo}}</span> {{todo.message}} </p>
-              <!-- <p fxFlex="auto"> <span class="id-todo">id: todo.idTodo</span> -  todo.message  ( todo.done ) </p> -->
               <div>
-                  <button class="btn btn-primary mr-2">edit</button>
+                  <button class="btn btn-primary mr-2" (click)="onClickEdit(todo.idTodo)">edit</button>
                   <button class="btn btn-danger">Supprimer</button>
               </div>
-            </li>
-    
-            <!-- <div *ngIf="selectedTodo$ | async; let selectedTodo">{{selectedTodo.message}}</div> -->
-    
+            </li>  
           </div>
       </div>
     </div>
