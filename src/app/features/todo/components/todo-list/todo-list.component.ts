@@ -21,4 +21,25 @@ export class TodoListComponent implements OnInit {
     })
   }
 
+  dateNow(): string{
+    let dateNow = '';
+    const now = new Date();
+    let day;
+    let month;
+    if(now.getDate() < 10)
+      day = '0'+now.getDate();
+    else{
+      day = now.getDate();
+    }
+
+    if(now.getMonth() < 10)
+      month = '0'+(now.getMonth()+1)
+    else
+      month = now.getMonth()+1;
+
+    dateNow = `${day} / ${month} / ${now.getFullYear()}`
+     
+    return dateNow;
+  }
+
 }
