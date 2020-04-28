@@ -19,6 +19,19 @@ export class TodoService {
     return this.todos;
   }
 
+  getTodoById(idTodo): Todo{
+
+    const result = this.todos.value.filter( t => {
+      // new myArray = [];
+      // myArray.push(t);
+      return t.idTodo === idTodo;
+    })
+
+    let todo = result[0];
+
+    return todo;
+  }
+
   initDatas(): void{
     const datas : Todo[] = [];
 
