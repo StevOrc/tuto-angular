@@ -1,12 +1,12 @@
 
 <div class="main-container">
-        <form >
-        
+        <form [formGroup]="todoForm">
                 <div class="form-group">
                     <label>message : </label>
                     <input
                         type="text"
                         class="form-control"
+                        formControlName="message"
                     >
                 </div>
             
@@ -15,13 +15,14 @@
                     <input
                         type="text"
                         class="form-control"
+                        formControlName="done"
                     >
                 </div>
                 <hr>
                 <div>
-                    <button class="btn btn-primary"> Save </button>
+                    <button class="btn btn-primary" (click)="createTodo()"> Save </button>
                     <button class="btn btn-danger ml-2"> Retour </button>
-                    <button class="btn btn-success ml-2" > Edit </button>
+                    <button class="btn btn-success ml-2"> Edit </button>
                 </div>
             </form>
         </div>

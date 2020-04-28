@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/models/todo.model';
 import { TodoService } from 'src/app/core/services/todo.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
