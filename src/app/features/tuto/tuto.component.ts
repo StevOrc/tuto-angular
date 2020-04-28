@@ -13,7 +13,6 @@ export class TutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("AAAAAAAAAAAAAAAAA");
   }
 
   username: string = 'Steven';

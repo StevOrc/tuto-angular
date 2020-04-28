@@ -6,6 +6,6 @@ export class Todo {
     done: boolean;
 
     constructor(){
-
+        
     }
 }
