@@ -19,12 +19,9 @@ export class TodoService {
     return this.todos;
   }
 
-  getAllTodosAsObservable(): Observable<Todo[]> {
-    return of(this.todos.value);
-  }
-
   initDatas(): void{
     const datas : Todo[] = [];
+
     let todo1: Todo = {
       idTodo: 1,
       message: "Faire ngrx",
@@ -40,6 +37,7 @@ export class TodoService {
       message: "dormir",
       done: false
     };
+
     datas.push(todo1);
     datas.push(todo2);
     datas.push(todo3);

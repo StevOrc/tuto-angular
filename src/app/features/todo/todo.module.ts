@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -10,6 +11,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     TodoListComponent
   ],
   imports: [
+    CommonModule
   ],
   exports: [
     TodoEditComponent,

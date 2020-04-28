@@ -5,16 +5,16 @@
               <h3>Liste de to do </h3>
               <button class="btn"><i class="material-icons create-todo">control_point</i></button>
           </div>
-          <div>
+          <div *ngFor="let todo of todos; let i = index">
             <li
               class="list-group-item d-flex flex-row justify-content-between"
             >
             <div class="icon-button">
-                <!-- <a class="btn"><i class="material-icons">todo.done ?  'check_box' : 'check_box_outline_blank'</i></a> -->
-                <a class="btn"><i class="material-icons">check_box_outline_blank</i></a>
+                <a class="btn"><i class="material-icons">{{todo.done ?  'check_box' : 'check_box_outline_blank'}}</i></a>
+                <!-- <a class="btn"><i class="material-icons">check_box_outline_blank</i></a> -->
             </div>
               <!-- {{ todo.done ?  'check_box' : 'check_box_outline_blank'}} -->
-              <p fxFlex="auto"> <span class="id-todo">1 - </span> Test </p>
+              <p fxFlex="auto"> <span class="id-todo">{{todo.idTodo}}</span> {{todo.message}} </p>
               <!-- <p fxFlex="auto"> <span class="id-todo">id: todo.idTodo</span> -  todo.message  ( todo.done ) </p> -->
               <div>
                   <button class="btn btn-primary mr-2">edit</button>
