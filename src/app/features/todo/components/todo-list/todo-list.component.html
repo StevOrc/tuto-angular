@@ -16,7 +16,7 @@
               <p fxFlex="auto"> <span class="id-todo">{{todo.idTodo}}</span> {{todo.message}} </p>
               <div>
                   <button class="btn btn-primary mr-2" (click)="onClickEdit(todo.idTodo)">edit</button>
-                  <button class="btn btn-danger">Supprimer</button>
+                  <button class="btn btn-danger" (click)="deleteTodo(todo.idTodo)">Supprimer</button>
               </div>
             </li>  
           </div>

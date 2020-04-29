@@ -32,6 +32,14 @@ export class TodoService {
     return todo;
   }
 
+  deleteTodo(idTodo) {
+    const allTodos = this.todos.value.filter( el => {
+      return el.idTodo !== idTodo;
+    })
+
+    this.todos.next(allTodos);
+  }
+
   editTodo(editTodo: Todo){
 
     // On filtre sur le tableau des todo

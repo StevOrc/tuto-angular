@@ -31,6 +31,10 @@ export class TodoListComponent implements OnInit {
     this.router.navigate(['todos', 'new']);
   }
 
+  deleteTodo(idTodo){
+    this.todoService.deleteTodo(idTodo);
+  }
+
   dateNow(): string{
     let dateNow = '';
     const now = new Date();
