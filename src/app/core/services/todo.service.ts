@@ -32,6 +32,26 @@ export class TodoService {
     return todo;
   }
 
+  editTodo(editTodo: Todo){
+
+    // On filtre sur le tableau des todo
+    // => on récupère un nouveau tableau sans la todo ayant le même id
+    // on push ensuite l'élément modifié dans le formulaire
+    const allTodos = this.todos.value.filter( el => {
+      return el.idTodo !== editTodo.idTodo;
+    });
+
+    allTodos.push(editTodo);
+    this.todos.next(allTodos);
+  }
+
+  saveNewTodo(newTodo: Todo){
+    const allTodos = this.todos.value;
+    allTodos.push(newTodo);
+
+    this.todos.next(allTodos);
+  }
+
   initDatas(): void{
     const datas : Todo[] = [];
 

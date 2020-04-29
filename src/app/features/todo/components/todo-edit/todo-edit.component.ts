@@ -17,7 +17,6 @@ export class TodoEditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private todoService: TodoService, private router: Router) { }
 
   ngOnInit(): void {
-    this.initTodoForm();
     this.route.paramMap.subscribe( (params: ParamMap) => {
       if(params.get('idTodo')){
         
@@ -40,11 +39,26 @@ export class TodoEditComponent implements OnInit {
     })
   }
 
-  createTodo(){
-    let newTodo: Todo = new Todo();
-    newTodo.message = this.todoForm.get('message').value;
-    newTodo.done = this.todoForm.value.done
-    newTodo.idTodo = 10;
+  saveTodo(){
+    let todo: Todo = new Todo();
+    todo.message = this.todoForm.get('message').value;
+
+    if(this.todoForm.value.idTodo){
+      if(this.todoForm.value.done === 'true'){
+        todo.done = true
+      } else if(this.todoForm.value.done === 'false') {
+        todo.done = false;
+      }
+      todo.idTodo = this.todoForm.value.idTodo;
+      this.todoService.editTodo(todo);
+    } else {
+      todo.done = this.todoForm.value.done;
+      todo.idTodo = Math.floor(Math.random() * 1001);
+      this.todoService.saveNewTodo(todo);
+    }
+
+    this.router.navigate(['todos']);
+
   }
 
   cancelTodo(): void {
