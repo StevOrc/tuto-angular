@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Todo } from 'src/app/core/models/todo.model';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TodoService } from 'src/app/core/services/todo.service';
+import { TodosService } from 'src/app/core/services/todos.service';
 
 @Component({
   selector: 'app-todo-edit',
@@ -14,16 +15,19 @@ export class TodoEditComponent implements OnInit {
   todo: Todo;
   todoForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private todoService: TodoService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private todoService: TodosService, private router: Router) { }
 
   ngOnInit(): void {
+    this.initTodoForm();
     this.route.paramMap.subscribe( (params: ParamMap) => {
       if(params.get('idTodo')){
         
         let idTodo = Number.parseInt(params.get('idTodo'));
-        this.todo = this.todoService.getTodoById(idTodo);
-
-        this.initTodoForm(this.todo)
+        // this.todo = this.todoService.getTodoById(idTodo);
+        this.todoService.getTodoById(idTodo).subscribe( data => {
+          this.todo = data;
+          this.initTodoForm(this.todo);
+        })
 
       } else{
         this.initTodoForm();
@@ -40,25 +44,42 @@ export class TodoEditComponent implements OnInit {
   }
 
   saveTodo(){
+    // let todo: Todo = new Todo();
+    // todo.message = this.todoForm.get('message').value;
+
+    // if(this.todoForm.value.idTodo){
+    //   if(this.todoForm.value.done === 'true'){
+    //     todo.done = true
+    //   } else if(this.todoForm.value.done === 'false') {
+    //     todo.done = false;
+    //   }
+    //   todo.idTodo = this.todoForm.value.idTodo;
+    //   this.todoService.editTodo(todo);
+    // } else {
+    //   todo.done = this.todoForm.value.done;
+    //   todo.idTodo = Math.floor(Math.random() * 1001);
+    //   this.todoService.saveNewTodo(todo);
+    // }
+
+    // this.router.navigate(['todos']);
+
+  }
+
+  saveOrUpdateTodo(): void {
+
     let todo: Todo = new Todo();
+
     todo.message = this.todoForm.get('message').value;
+    todo.done = this.todoForm.value.done;
 
     if(this.todoForm.value.idTodo){
-      if(this.todoForm.value.done === 'true'){
-        todo.done = true
-      } else if(this.todoForm.value.done === 'false') {
-        todo.done = false;
-      }
       todo.idTodo = this.todoForm.value.idTodo;
-      this.todoService.editTodo(todo);
-    } else {
-      todo.done = this.todoForm.value.done;
-      todo.idTodo = Math.floor(Math.random() * 1001);
-      this.todoService.saveNewTodo(todo);
     }
 
-    this.router.navigate(['todos']);
+    this.todoService.saveTodo(todo).subscribe( data => {
+    });
 
+    this.router.navigate(['todos']);
   }
 
   saveOrUpdate(){

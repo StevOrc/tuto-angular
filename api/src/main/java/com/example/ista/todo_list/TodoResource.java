@@ -38,6 +38,16 @@ public class TodoResource {
         return null;
     }
 
+    @GetMapping("getById/{idTodo}")
+    public ResponseEntity<TodoDto> getTodoById(@PathVariable Long idTodo){
+
+        TodoDto result = this.todoService.getById(idTodo);
+        if (result == null){
+            new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        return new  ResponseEntity<>(result, HttpStatus.OK);
+    }
+
     @GetMapping("all")
     public ResponseEntity<List<TodoDto>> getAllTodos(){
 

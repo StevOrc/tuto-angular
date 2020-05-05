@@ -21,8 +21,9 @@ public class TodoApplication {
 		Todo todo1 = new Todo(101L, "Faire RXJS", false);
 		Todo todo2 = new Todo(102L, "Dormir", true);
 		Todo todo3 = new Todo(103L, "Manger", false);
+		Todo todo = new Todo(104L, "TEST", true);
 		List<Todo> todoList = new ArrayList<>();
-		todoList.add(todo1); todoList.add(todo2); todoList.add(todo3);
+		todoList.add(todo1); todoList.add(todo2); todoList.add(todo3); todoList.add(todo);
 
 		this.repository.saveAll(todoList);
 	}

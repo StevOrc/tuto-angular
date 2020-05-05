@@ -32,6 +32,11 @@ public class TodoService {
         return convertListEntityToListDto(this.todoRepository.findAll());
     }
 
+    public TodoDto getById(Long idTodo){
+
+        return convertEntityToDto(this.todoRepository.findById(idTodo).get());
+    }
+
     private List<TodoDto> convertListEntityToListDto(List<Todo> todoList){
         List<TodoDto> todoDtoList = new ArrayList<>();
 
