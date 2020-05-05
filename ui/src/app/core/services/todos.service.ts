@@ -17,13 +17,13 @@ export class TodosService {
     return this.http.get<Todo[]>(this.url + 'all');
   }
 
+  getTodoById(idTodo): Observable<Todo> {
+
+    return this.http.get<Todo>(this.url + 'getById/' + idTodo);
+  }
+
   saveTodo(todo): Observable<Todo> {
 
     return this.http.post<Todo>(this.url + 'save', todo);
   }
-
-  deleteTodo(idTodo): Observable<any> {
-
-    return this.http.delete<any>(this.url + 'save' + '/' +idTodo);
-  } 
 }
