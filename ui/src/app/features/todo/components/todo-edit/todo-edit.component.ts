@@ -80,11 +80,7 @@ export class TodoEditComponent implements OnInit {
       console.log(data);
     });
 
-    this.router.navigate(['todos']);
-  }
-
-  saveOrUpdate(){
-
+    this.router.navigate(['home', 'todos']);
   }
 
   cancelTodo(): void {

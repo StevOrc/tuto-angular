@@ -25,11 +25,11 @@ export class TodoListComponent implements OnInit {
   }
 
   onClickEdit(idTodo): void{
-    this.router.navigate(['todos', idTodo]);
+    this.router.navigate(['home', 'todos', idTodo]);
   }
 
   onClickCreate(): void {
-    this.router.navigate(['todos', 'new']);
+    this.router.navigate(['home', 'todos', 'new']);
   }
 
   deleteTodo(idTodo){

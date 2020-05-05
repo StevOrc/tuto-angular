@@ -33,9 +33,11 @@ public class TodoResource {
     }
 
     @DeleteMapping("delete/{idTodo}")
-    public ResponseEntity<TodoDto> deleteTodo(@PathVariable Long idTodo){
-        System.out.println("test");
-        return null;
+    public ResponseEntity deleteTodo(@PathVariable Long idTodo){
+
+        this.todoService.deleteTodo(idTodo);
+
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
     @GetMapping("getById/{idTodo}")

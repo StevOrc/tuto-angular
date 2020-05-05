@@ -37,6 +37,11 @@ public class TodoService {
         return convertEntityToDto(this.todoRepository.findById(idTodo).get());
     }
 
+    public void deleteTodo(Long idTodo){
+
+        this.todoRepository.deleteById(idTodo);
+    }
+
     private List<TodoDto> convertListEntityToListDto(List<Todo> todoList){
         List<TodoDto> todoDtoList = new ArrayList<>();
 
