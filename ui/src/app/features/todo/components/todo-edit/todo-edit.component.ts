@@ -77,6 +77,7 @@ export class TodoEditComponent implements OnInit {
     }
 
     this.todoService.saveTodo(todo).subscribe( data => {
+      console.log(data);
     });
 
     this.router.navigate(['todos']);

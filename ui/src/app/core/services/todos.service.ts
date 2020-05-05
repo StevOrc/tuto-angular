@@ -26,4 +26,8 @@ export class TodosService {
 
     return this.http.post<Todo>(this.url + 'save', todo);
   }
+
+  deleteTodo(idTodo): Observable<any>{
+    return this.http.delete<any>(this.url + 'delete/' + idTodo);
+  }
 }

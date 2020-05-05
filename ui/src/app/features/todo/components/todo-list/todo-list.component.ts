@@ -33,7 +33,11 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTodo(idTodo){
-    
+    this.todoService.deleteTodo(idTodo).subscribe( data =>{
+      console.log(data);
+    }
+    )
+    window.location.reload();
   }
 
   dateNow(): string{
