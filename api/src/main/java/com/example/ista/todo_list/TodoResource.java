@@ -34,7 +34,7 @@ public class TodoResource {
 
     @DeleteMapping("delete/{idTodo}")
     public ResponseEntity<TodoDto> deleteTodo(@PathVariable Long idTodo){
-
+        System.out.println("test");
         return null;
     }
 
