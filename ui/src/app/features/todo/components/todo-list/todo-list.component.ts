@@ -3,6 +3,7 @@ import { Todo } from 'src/app/core/models/todo.model';
 import { TodoService } from 'src/app/core/services/todo.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TodosService } from 'src/app/core/services/todos.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,7 +14,7 @@ export class TodoListComponent implements OnInit {
 
   todos: Todo[];
 
-  constructor(private todoService: TodoService, private router: Router) { }
+  constructor(private todoService: TodosService, private router: Router) { }
 
   ngOnInit(): void {
     this.todoService.getAllTodos().subscribe( data =>{
@@ -32,7 +33,7 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTodo(idTodo){
-    this.todoService.deleteTodo(idTodo);
+    
   }
 
   dateNow(): string{
