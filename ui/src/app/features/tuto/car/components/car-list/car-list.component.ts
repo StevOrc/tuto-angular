@@ -11,6 +11,7 @@ export class CarListComponent implements OnInit {
 
   cars: Car[];
   carDetails: Car;
+  rowSelected: number;
 
   constructor(private carService: CarService) { }
 
@@ -19,6 +20,8 @@ export class CarListComponent implements OnInit {
       if(data){
         this.cars = data;
         this.carDetails = this.cars[0];
+        this.rowSelected = this.carDetails.idCar;
+        console.log(this.rowSelected);
       }else{
         this.cars = [];
       }
@@ -30,6 +33,6 @@ export class CarListComponent implements OnInit {
   }
 
   selectedRow(event){
-    console.log(event);
+    this.rowSelected = event;
   }
 }

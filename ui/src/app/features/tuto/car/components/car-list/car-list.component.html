@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let car of cars">
+        <tr *ngFor="let car of cars" [style.backgroundColor]="rowSelected === car.idCar ? '#eee' : 'transparent'">
             <td> {{car.couleur}} </td>
             <td> {{car.marque}} </td>
             <td> {{car.model}} </td>
@@ -27,10 +27,6 @@
 
 <div class="container sub-container">
     <div class="app-details">
-        <app-car-details
-            [car]="carDetails"
-            (onClickSelectRow)="selectedRow($event)"
-        >
-        </app-car-details>
+        <app-car-details [car]="carDetails" (onClickSelectRow)="selectedRow($event)"></app-car-details>
     </div>
 </div>
