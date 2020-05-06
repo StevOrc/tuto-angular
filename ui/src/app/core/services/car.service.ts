@@ -22,21 +22,24 @@ export class CarService {
       couleur: "noir",
       marque: "BMW",
       model: "serie 1",
-      prix: 25000  
+      prix: 25000,
+      pays: "Allemagne"
     };
     let car2: Car = {
       idCar: 2,
       couleur: "bleu",
       marque: "Renault",
       model: "megan",
-      prix: 12000  
+      prix: 12000,
+      pays: "France"
     };
     let car3: Car = {
       idCar: 3,
       couleur: "rouge",
       marque: "Toyota",
       model: "Panda",
-      prix: 7000  
+      prix: 7000,
+      pays: "Japon"
     };
 
     datas.push(car1);

@@ -6,6 +6,7 @@ export class Car {
     prix: number;
     couleur: string;
     model: string;
+    pays: string;
 
     constructor(){}
 }

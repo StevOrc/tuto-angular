@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Car } from 'src/app/core/models/car.model';
 
 @Component({
   selector: 'app-car-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarDetailsComponent implements OnInit {
 
+  @Input('car') car: Car;
+  @Output('onClickSelectRow') selectedCar: EventEmitter<number> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClickEmitEvent(idCar){
+    this.selectedCar.emit(idCar);
+  }
 }

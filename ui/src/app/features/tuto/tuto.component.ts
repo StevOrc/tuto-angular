@@ -24,10 +24,10 @@ export class TutoComponent implements OnInit {
   value = "username"
 
   cars: Car[] = [
-    {idCar: 1, couleur: 'rouge', marque: 'BMW', model: 'serie 1', prix: 20000},
-    {idCar: 2, couleur: 'noir', marque: 'Renaut', model: 'ZOE', prix: 17},
-    {idCar: 3, couleur: 'vert', marque: 'Toyota', model: 'Yaris', prix: 30000},
-    {idCar: 4, couleur: 'bleu', marque: 'Test', model: 'Test', prix: 10000}
+    {idCar: 1, couleur: 'rouge', marque: 'BMW', model: 'serie 1', prix: 20000, pays: ""},
+    {idCar: 2, couleur: 'noir', marque: 'Renaut', model: 'ZOE', prix: 17, pays: ""},
+    {idCar: 3, couleur: 'vert', marque: 'Toyota', model: 'Yaris', prix: 30000, pays: ""},
+    {idCar: 4, couleur: 'bleu', marque: 'Test', model: 'Test', prix: 10000, pays: ""}
   ]
 
 

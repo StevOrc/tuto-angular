@@ -1,1 +1,20 @@
-<p>car-details works!</p>
+<h2>Car Details</h2>
+<div class="main-container">
+    <div class="card" style="width: 25rem;">
+        <div class="card-header">
+            {{car.marque}}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">id car : {{car.idCar}} </li>
+            <li class="list-group-item">Couleur : {{car.couleur}} </li>
+            <li class="list-group-item">Pays : {{car.pays}} </li>
+            <li class="list-group-item">Prix : {{car.prix}} </li>
+        </ul>
+        <button
+            class="btn btn-primary"
+            (click)="onClickEmitEvent(car.idCar)"
+        >
+            Select Row
+        </button>
+    </div>
+</div>
