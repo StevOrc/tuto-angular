@@ -4,7 +4,7 @@ import { TodoListComponent } from './features/todo/components/todo-list/todo-lis
 import { TodoEditComponent } from './features/todo/components/todo-edit/todo-edit.component';
 import { HomeContainerComponent } from './features/home-template/container/home-container/home-container.component';
 import { TutoComponent } from './features/tuto/tuto.component';
-import { CarListComponent } from './features/tuto/car/components/car-list/car-list.component';
+import { CarContainerComponent } from './features/tuto/car/container/car-container/car-container.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
       {path: 'todos/new', component: TodoEditComponent},
       {path: 'todos/:idTodo', component: TodoEditComponent},
       {path: 'tuto/bases-angular', component: TutoComponent},
-      {path: 'tuto/in-out', component: CarListComponent},
+      {path: 'tuto/in-out', component: CarContainerComponent},
     ]
   },
   {path: '**', redirectTo: 'home/todos', pathMatch: 'full'}

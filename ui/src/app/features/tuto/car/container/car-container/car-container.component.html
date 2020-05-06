@@ -1,1 +1,17 @@
-<p>car-container works!</p>
+
+<div class="list-car">
+    <app-car-list
+        [cars]="cars"
+        [rowSelected]="idCar"
+        (onClickCarDetails)="onClickDetails($event)"
+    >
+    </app-car-list>
+</div>
+<hr class="container">
+<div class="details-car">
+    <app-car-details
+        [car]="carDeatils"
+        (onClickSelectRow)="onClickSelectedRow($event)"
+    >
+    </app-car-details>
+</div>

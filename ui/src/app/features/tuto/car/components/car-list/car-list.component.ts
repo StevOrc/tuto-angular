@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Car } from 'src/app/core/models/car.model';
 import { CarService } from 'src/app/core/services/car.service';
 
@@ -9,27 +9,18 @@ import { CarService } from 'src/app/core/services/car.service';
 })
 export class CarListComponent implements OnInit {
 
-  cars: Car[];
-  carDetails: Car;
-  rowSelected: number;
-  test: string = 'TEST !!';
+  @Input('cars') cars: Car[];
+  @Output('onClickCarDetails') carDetailsEvent: EventEmitter<Car> = new EventEmitter();
+  @Input('rowSelected') rowSelected: number;
 
-  constructor(private carService: CarService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.carService.cars.subscribe( data => {
-      if(data){
-        this.cars = data;
-        this.carDetails = this.cars[0];
-        this.rowSelected = this.carDetails.idCar;
-      }else{
-        this.cars = [];
-      }
-    })
+
   }
 
   onClickDetails(car){
-    this.carDetails = car;
+    this.carDetailsEvent.emit(car);
   }
 
   selectedRow(event){
