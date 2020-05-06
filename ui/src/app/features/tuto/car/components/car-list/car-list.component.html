@@ -27,6 +27,11 @@
 
 <div class="container sub-container">
     <div class="app-details">
-        <app-car-details [car]="carDetails" (onClickSelectRow)="selectedRow($event)"></app-car-details>
+        <app-car-details
+            [car]="carDetails"
+            [myTtile]="test"
+            (onClickSelectRow)="selectedRow($event)"
+            (onClickUsername)="catchUsername($event)"
+        ></app-car-details>
     </div>
 </div>

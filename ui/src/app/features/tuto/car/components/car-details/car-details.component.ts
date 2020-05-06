@@ -9,7 +9,10 @@ import { Car } from 'src/app/core/models/car.model';
 export class CarDetailsComponent implements OnInit {
 
   @Input('car') car: Car;
+  @Input('myTtile') title: string = "mon titre";
+  
   @Output('onClickSelectRow') selectedCar: EventEmitter<number> = new EventEmitter();
+  @Output('onClickUsername') sendUsername: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -18,5 +21,14 @@ export class CarDetailsComponent implements OnInit {
 
   onClickEmitEvent(idCar){
     this.selectedCar.emit(idCar);
+  }
+
+  onClickSendUsername(){
+    let obj = {
+      username: 'Steven',
+      age: 34
+    };
+
+    this.sendUsername.emit(obj);
   }
 }
